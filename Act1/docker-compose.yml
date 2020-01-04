@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  s1:
+    container_name: s1
+    ports:
+    - "5000:5000"
+    expose:
+    - "5000"
+    tty: true
+    build: ./Server
+    volumes:
+    - "./Server/:/app/"
+    - "./:/app/act1/"
+  c1:
+    container_name: c1
+    tty: true
+    build: ./Client
+    volumes:
+      - "./Client/:/app/"
+      - "./:/app/act1/"
+    depends_on:
+      - s1
+  c2:
+    container_name: c2
+    tty: true
+    build: ./Client
+    volumes:
+      - "./Client/:/app/"
+      - "./:/app/act1/"
+    depends_on:
+      - s1
