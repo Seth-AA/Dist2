@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  s1_rabbit:
+    container_name: s1_rabbit
+    tty: true
+    build: ./Server
+    volumes:
+    - "./Server/:/app/"
+    #- "./:/app/act2/"
+    depends_on: 
+      - rabbit
+  c1_rabbit:
+    container_name: c1_rabbit
+    tty: true
+    build: ./Client
+    volumes:
+      - "./Client/:/app/"
+    #  - "./:/app/act2/"
+    depends_on:
+      - s1_rabbit
+      - rabbit
+  c2_rabbit:
+    container_name: c2_rabbit
+    tty: true
+    build: ./Client
+    volumes:
+      - "./Client/:/app/"
+    #  - "./:/app/act2/"
+    depends_on:
+      - s1_rabbit
+      - rabbit
+  rabbit:
+    hostname: rabbit
+    image: rabbitmq
+    expose:
+    - "5672"
+    - "15672"

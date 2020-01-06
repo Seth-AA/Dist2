@@ -4,6 +4,8 @@
 
 Para cada una de las actividades existe un archivo "docker-compose.yml", por lo que dependiendo de la actividad que se quiera ejecutar, basta con meterse dentro de la carpeta *"Act1"* o *"Act2"* y ejecutar los comandos "docker-compose build" y "docker-compose up".
 
+Dado que se utiliza el caracter ';' como separador, se asume que ningún mensaje o nombre de cliente/usuario tendrá ese caracter ya que inducirá a errores.
+
 (Tal y como está la tarea funciona, dado que no se debiesen cambiar los input de esta tarea no deberían haber problemas, y si llegasen a ocurrir se hablará en alguna instancia futura)
 (Solo se ha probado la tarea en w10)
 
@@ -26,16 +28,24 @@ Para que funciones correctamente es necesario que exista previamente el archivo 
 
 Dentro de la carpeta Client existen dos archivos para el *Cliente*: **Client.py** es el archivo que se utiliza para realizar la simulación de la interacción con el servidor; por otro lado está **ClientOut.py** que es el que se deberá ejecutar si es que se quisiera agregar un tercer cliente al servidor. Por último se creó una carpeta *act1* que contiene una copia de los archivos **Act_pb2** necesarios para que el cliente que se conecte desde afuera se pueda ejecutar.
 
+Al iniciar **ClientOut.py** se harán una serie de preguntas que le permitirá poder acceder e interactuar con el servidor y otros usuarios a través de él. El login es simplemente colocar el nombre de usuario, esto significa que cualquiera que coloque su nombre creará un nuevo usuario o accederá a una cuenta creada.
+
 **Para conectar un tercer cliente** se debe ejecutar la línea `python .\Client\ClientOut.py` desde la raíz de la actividad 1 (*\act1*), además es necesario introducir la IP mostrada por el servidor al inicio de su ejecución cuando sea solicitado por el cliente, de esta manera ya podrá realizar cualquiera de las funciones mostradas en el menú. 
 
 #### Ejemplo del menú
 
  | What would you like to do?
+
  | 1 - Write and Send a Message
+
  | 2 - View received messages
+
  | 3 - View sent messages
+
  | 4 - View the full list of Clients of the server
+
  | 0 - Logout
+
  | Your choice: 3
 
  ## Actividad 2 (Act2)
